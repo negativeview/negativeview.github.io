@@ -4,7 +4,68 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Framework</h1>
+        <h1>Idle Game</h1>
+        <h2>Theme: Light</h2>
+        <h3>Inspiration: idleLoop</h3>
+        <ul>
+            <li>Start at almost-sunset.</li>
+            <li>Initially limited to the rest of the day.</li>
+            <li>Get power working -> can use electric lights.</li>
+            <li>Extend battery power.</li>
+            <li>Travel with the sun to chase the sunlight.</li>
+            <li>Game ends when you have perpetual travel at the speed of the sun.</li>
+            <li>Canvas shows map/sunlight.</li>
+        </ul>
+        <h3>TODO</h3>
+        <ul>
+            <li>FontAwesome is causing problems with shadow roots. Find another option. Possibly even game icons.</li>
+            <li>Make sure day/night cycle is internally consistent. It does a cycle now, but is it dark at the "right time"?</li>
+            <li>Display clock time to user.</li>
+            <li>Start writing intro text.</li>
+            <li>Figure out action interface</li>
+        </ul>
+        <i class="fa fa-building"></i>
+        <gc-game>
+
+        </gc-game>
+
+        <template id="building-template">
+            <style>
+                :host {
+                    display: inline-block;
+                    width: 25px;
+                    height: 25px;
+                }
+            </style>
+        </template>
+
+        <template id="game-template">
+            <style>
+                :host {
+                    display: block;
+                    position: relative;
+                    width: 800px;
+                    height: 600px;
+                    background-color: rgb(0, 255, 0);
+                }
+                gc-building {
+                    z-index: 0;
+                }
+                #overlay {
+                    z-index: 20;
+                    background-color: rgba(0, 0, 0, 1);
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    pointer-events: none;
+                }
+            </style>
+            <div id="overlay"></div>
+
+        </template>
+
         <script src="main.js"></script>
     </body>
 </html>
